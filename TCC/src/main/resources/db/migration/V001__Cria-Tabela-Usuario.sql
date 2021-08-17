@@ -8,7 +8,7 @@ Create table USUARIO(
 	SEXO VARCHAR(1) not null,
 	DATA_CADASTRO DATE not null,
 	LOGIN VARCHAR(255) not null,
-	SENHA VARCHAR(255) not null
+	SENHA VARCHAR(255) not null,
         
     primary key (USUARIO_ID)
 );
