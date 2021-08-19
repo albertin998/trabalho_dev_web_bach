@@ -14,15 +14,15 @@ public class Etapa {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private int etapa_id;
+  private Long etapa_id;
   
   private String descricao;
 
-public int getEtapa_id() {
+public Long getEtapa_id() {
   return etapa_id;
 }
 
-public void setEtapa_id(int etapa_id) {
+public void setEtapa_id(Long etapa_id) {
   this.etapa_id = etapa_id;
 }
 

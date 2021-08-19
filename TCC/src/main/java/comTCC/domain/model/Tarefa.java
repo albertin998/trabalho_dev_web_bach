@@ -18,29 +18,29 @@ public class Tarefa {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private int tarefa_id;
+  private Long tarefa_id;
   
-  private int funcionario_id;
+  private Long funcionario_id;
   private LocalDateTime data_cadastro;
   private LocalDateTime data_entrega;
   private LocalTime tempo_gasto;
   private Blob texto;
-  private int etapa_id;
-  private int solicitacao_id;
+  private Long etapa_id;
+  private Long solicitacao_id;
   
-public int getTarefa_id() {
+public Long getTarefa_id() {
   return tarefa_id;
 }
 
-public void setTarefa_id(int tarefa_id) {
+public void setTarefa_id(Long tarefa_id) {
   this.tarefa_id = tarefa_id;
 }
 
-public int getFuncionario_id() {
+public Long getFuncionario_id() {
   return funcionario_id;
 }
 
-public void setFuncionario_id(int funcionario_id) {
+public void setFuncionario_id(Long funcionario_id) {
   this.funcionario_id = funcionario_id;
 }
 
@@ -76,19 +76,19 @@ public void setTexto(Blob texto) {
   this.texto = texto;
 }
 
-public int getEtapa_id() {
+public Long getEtapa_id() {
   return etapa_id;
 }
 
-public void setEtapa_id(int etapa_id) {
+public void setEtapa_id(Long etapa_id) {
   this.etapa_id = etapa_id;
 }
 
-public int getSolicitacao_id() {
+public Long getSolicitacao_id() {
   return solicitacao_id;
 }
 
-public void setSolicitacao_id(int solicitacao_id) {
+public void setSolicitacao_id(Long solicitacao_id) {
   this.solicitacao_id = solicitacao_id;
 }
 

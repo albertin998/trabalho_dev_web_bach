@@ -17,26 +17,26 @@ public class Solicitacao {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private int solicitacao_id;
+  private Long solicitacao_id;
   
-  private int cliente_id;
+  private Long cliente_id;
   private LocalDateTime data_cadastro;
   private LocalDateTime data_entrega;
   private LocalTime tempo_gasto;
   
-public int getSolicitacao_id() {
+public Long getSolicitacao_id() {
   return solicitacao_id;
 }
 
-public void setSolicitacao_id(int solicitacao_id) {
+public void setSolicitacao_id(Long solicitacao_id) {
   this.solicitacao_id = solicitacao_id;
 }
 
-public int getCliente_id() {
+public Long getCliente_id() {
   return cliente_id;
 }
 
-public void setCliente_id(int cliente_id) {
+public void setCliente_id(Long cliente_id) {
   this.cliente_id = cliente_id;
 }
 

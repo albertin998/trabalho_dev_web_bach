@@ -16,7 +16,7 @@ public class Usuario {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY)  
-  private int usuario_id;	
+  private Long usuario_id;	
 	  
   private String nome;
   private String telefone;
@@ -26,11 +26,11 @@ public class Usuario {
   private String sexo;
   private LocalDateTime data_cadastro;
   
-public int getUsuario_id() {
+public Long getUsuario_id() {
   return usuario_id;
 }
   
-public void setUsuario_id(int usuario_id) {
+public void setUsuario_id(Long usuario_id) {
   this.usuario_id = usuario_id;
 }
 

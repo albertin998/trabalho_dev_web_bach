@@ -14,25 +14,25 @@ public class Cliente {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY)  
-  private int cliente_id;
+  private Long cliente_id;
   
-  private int usuario_id;
+  private Long usuario_id;
   private String nome_empresa;
   private String status;
   
-public int getCliente_id() {
+public Long getCliente_id() {
   return cliente_id;
 }
 
-public void setCliente_id(int cliente_id) {
+public void setCliente_id(Long cliente_id) {
   this.cliente_id = cliente_id;
 }
 
-public int getUsuario_id() {
+public Long getUsuario_id() {
   return usuario_id;
 }
 
-public void setUsuario_id(int usuario_id) {
+public void setUsuario_id(Long usuario_id) {
   this.usuario_id = usuario_id;
 }
 

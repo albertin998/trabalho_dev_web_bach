@@ -14,15 +14,15 @@ public class Cargo {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private int cargo_id;
+  private Long cargo_id;
   
   private String descricao;
 
-public int getCargo_id() {
+public Long getCargo_id() {
   return cargo_id;
 }
 
-public void setCargo_id(int cargo_id) {
+public void setCargo_id(Long cargo_id) {
   this.cargo_id = cargo_id;
 }
 

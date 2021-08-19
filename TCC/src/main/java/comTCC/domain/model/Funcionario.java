@@ -14,33 +14,33 @@ public class Funcionario {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private int funcionario_id;
+  private Long funcionario_id;
   
-  private int usuario_id;
-  private int cargo_id;
+  private Long usuario_id;
+  private Long cargo_id;
   private String status;
   
-public int getFuncionario_id() {
+public Long getFuncionario_id() {
   return funcionario_id;
 }
 
-public void setFuncionario_id(int funcionario_id) {
+public void setFuncionario_id(Long funcionario_id) {
   this.funcionario_id = funcionario_id;
 }
 
-public int getUsuario_id() {
+public Long getUsuario_id() {
   return usuario_id;
 }
 
-public void setUsuario_id(int usuario_id) {
+public void setUsuario_id(Long usuario_id) {
   this.usuario_id = usuario_id;
 }
 
-public int getCargo_id() {
+public Long getCargo_id() {
   return cargo_id;
 }
 
-public void setCargo_id(int cargo_id) {
+public void setCargo_id(Long cargo_id) {
   this.cargo_id = cargo_id;
 }
 
