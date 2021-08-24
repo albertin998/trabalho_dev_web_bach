@@ -1,4 +1,4 @@
-package comTCC.domain.model;
+package com.Tcc.domain.model;
 
 import java.time.LocalDateTime;
 

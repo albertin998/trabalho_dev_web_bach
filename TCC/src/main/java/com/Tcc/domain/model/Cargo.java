@@ -1,4 +1,4 @@
-package comTCC.domain.model;
+package com.Tcc.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,21 +9,21 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Etapa {
+public class Cargo {
 
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private Long etapa_id;
+  private Long cargo_id;
   
   private String descricao;
 
-public Long getEtapa_id() {
-  return etapa_id;
+public Long getCargo_id() {
+  return cargo_id;
 }
 
-public void setEtapa_id(Long etapa_id) {
-  this.etapa_id = etapa_id;
+public void setCargo_id(Long cargo_id) {
+  this.cargo_id = cargo_id;
 }
 
 public String getDescricao() {
@@ -33,6 +33,6 @@ public String getDescricao() {
 public void setDescricao(String descricao) {
   this.descricao = descricao;
 }
- 
   
 }
+	        
