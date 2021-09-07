@@ -1,16 +1,18 @@
 package com.Tcc.domain.model;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 	
   @EqualsAndHashCode.Include	
@@ -24,7 +26,7 @@ public class Usuario {
   private String documento; 
   private String email;
   private String sexo;
-  private LocalDateTime data_cadastro;
+  private Date data_cadastro;
   
 public Long getUsuario_id() {
   return usuario_id;
@@ -81,12 +83,12 @@ public void setSexo(String sexo) {
   this.sexo = sexo;
 }
 
-public LocalDateTime getData_cadastro() {
+public Date getData_cadastro() {
   return data_cadastro;
 }
 
-public void setData_cadastro(LocalDateTime data_cadastro) {
-  this.data_cadastro = data_cadastro;
+public void setData_cadastro(Date date) {
+  this.data_cadastro = date;
 }
 
 public String getLogin() {
