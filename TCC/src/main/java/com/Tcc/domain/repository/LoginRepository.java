@@ -17,30 +17,33 @@ public class LoginRepository {
 
     public Usuario ValidarUsuario(String Login, String Senha) {
 
-        String query = "select u.usuario_id, u.NOME, u.TELEFONE, u.TIPO_DOCUMENTO, u.DOCUMENTO, u.EMAIL, u.sexo, u.DATA_CADASTRO, u.LOGIN, u.SENHA from Usuario as U ";
-        String condicao = "where";
 
-        if(Login != null) {
-            query += condicao + " u.Login = :login";
+        String query = "select U from Usuario as U  ";
+        String condicao = " where ";
+
+        if(!Login.isEmpty()) {
+            query += condicao + " U.Login = :Login ";
             condicao = " and ";
         }
 
-        if(Senha != null) {
-            query += condicao + " u.senha = :senha";
+        if(!Senha.isEmpty()) {
+            query += condicao + " U.Senha = :Senha ";
             condicao = " and ";
         }
 
-        var q = em.createQuery(query, Usuario.class);
+        var q = em.createQuery(query);
 
-        if(Login != null) {
+        if(!Login.isEmpty()) {
             q.setParameter("Login", Login);
         }
 
-        if(Senha != null) {
+        if(!Senha.isEmpty()) {
             q.setParameter("Senha", Senha);
         }
 
-        return q.getSingleResult();
+        return (Usuario) q.getSingleResult();
+
+     
     }
 
 }

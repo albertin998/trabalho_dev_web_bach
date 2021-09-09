@@ -36,7 +36,7 @@ public class UsuarioController {
   }	
 				
   @GetMapping("/Usuarios/{Usuario_id}")
-  public ResponseEntity<Usuario> Buscar(@PathVariable Long Usuario_id) {
+  public ResponseEntity<Usuario> Buscar(@PathVariable Integer Usuario_id) {
     Optional<Usuario> Usuario = UsuarioRepository.findById(Usuario_id);
 				
     if (Usuario.isPresent()) {
@@ -47,7 +47,7 @@ public class UsuarioController {
   }
 				
   @PutMapping("/Usuarios/{Usuario_id}")
-  public ResponseEntity<Usuario> Atualizar(@PathVariable Long Usuario_id, @RequestBody Usuario Usuario){
+  public ResponseEntity<Usuario> Atualizar(@PathVariable Integer Usuario_id, @RequestBody Usuario Usuario){
 			
     if (!UsuarioRepository.existsById(Usuario_id)) {
 	  return ResponseEntity.notFound().build();
@@ -61,7 +61,7 @@ public class UsuarioController {
 			
 			
   @DeleteMapping("/Usuarios/{Usuario_id}")
-  public ResponseEntity<Void> Deletar(@PathVariable Long Usuario_id){
+  public ResponseEntity<Void> Deletar(@PathVariable Integer Usuario_id){
     if (!UsuarioRepository.existsById(Usuario_id)) {
 	  return ResponseEntity.notFound().build();
 	}

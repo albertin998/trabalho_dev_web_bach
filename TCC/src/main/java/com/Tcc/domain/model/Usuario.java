@@ -18,7 +18,7 @@ public class Usuario {
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY)  
-  private Long usuario_id;	
+  private Integer usuario_id;	
 	  
   private String nome;
   private String telefone;
@@ -27,12 +27,14 @@ public class Usuario {
   private String email;
   private String sexo;
   private Date data_cadastro;
+  private String Login;
+  private String Senha;
   
-public Long getUsuario_id() {
+public Integer getUsuario_id() {
   return usuario_id;
 }
   
-public void setUsuario_id(Long usuario_id) {
+public void setUsuario_id(Integer usuario_id) {
   this.usuario_id = usuario_id;
 }
 
@@ -92,22 +94,19 @@ public void setData_cadastro(Date date) {
 }
 
 public String getLogin() {
-  return login;
+  return Login;
 }
 
 public void setLogin(String login) {
-  this.login = login;
+  this.Login = login;
 }
 
 public String getSenha() {
-  return senha;
+  return Senha;
 }
 
 public void setSenha(String senha) {
-  this.senha = senha;
-}
-
-private String login;
-  private String senha;   
+  this.Senha = senha;
+}   
 }
 
