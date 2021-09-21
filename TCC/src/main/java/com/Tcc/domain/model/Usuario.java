@@ -29,6 +29,51 @@ public class Usuario {
   private Date data_cadastro;
   private String Login;
   private String Senha;
+  private String nome_empresa;
+  private String status;
+  private String cargo_id;
+  private Boolean isFuncionario;
+  private Boolean isCliente;  
+  
+  public String getNome_empresa() {
+	return nome_empresa;
+}
+
+public void setNome_empresa(String nome_empresa) {
+	this.nome_empresa = nome_empresa;
+}
+
+public String getStatus() {
+	return status;
+}
+
+public void setStatus(String status) {
+	this.status = status;
+}
+
+public String getCargo_id() {
+	return cargo_id;
+}
+
+public void setCargo_id(String cargo_id) {
+	this.cargo_id = cargo_id;
+}
+
+public Boolean getIsFuncionario() {
+	return isFuncionario;
+}
+
+public void setIsFuncionario(Boolean isFuncionario) {
+	this.isFuncionario = isFuncionario;
+}
+
+public Boolean getIsCliente() {
+	return isCliente;
+}
+
+public void setIsCliente(Boolean isCliente) {
+	this.isCliente = isCliente;
+}
   
 public Integer getUsuario_id() {
   return usuario_id;
@@ -89,8 +134,8 @@ public Date getData_cadastro() {
   return data_cadastro;
 }
 
-public void setData_cadastro(Date date) {
-  this.data_cadastro = date;
+public void setData_cadastro(Date data) {  
+  this.data_cadastro = data;
 }
 
 public String getLogin() {
