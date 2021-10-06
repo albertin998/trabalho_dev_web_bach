@@ -23,12 +23,14 @@ public class SolicitacaoController {
   
   @Autowired
   private SolicitacaoRepository SolicitacaoRepository;
+  
 			
-  @PostMapping("/Solicitacaos")
+  @PostMapping("/Solicitacao")
   @ResponseStatus(HttpStatus.CREATED)
   public Solicitacao Adicionar(@RequestBody Solicitacao Solicitacao) {
     return SolicitacaoRepository.save(Solicitacao);    
   }	
+  
 					
   @GetMapping("/Solicitacaos")
   public List<Solicitacao> Listar(){	  				
@@ -36,7 +38,7 @@ public class SolicitacaoController {
   }	
 				
   @GetMapping("/Solicitacaos/{Solicitacao_id}")
-  public ResponseEntity<Solicitacao> Buscar(@PathVariable Long Solicitacao_id) {
+  public ResponseEntity<Solicitacao> Buscar(@PathVariable Integer Solicitacao_id) {
     Optional<Solicitacao> Solicitacao = SolicitacaoRepository.findById(Solicitacao_id);
 				
     if (Solicitacao.isPresent()) {
@@ -47,7 +49,7 @@ public class SolicitacaoController {
   }
 				
   @PutMapping("/Solicitacaos/{Solicitacao_id}")
-  public ResponseEntity<Solicitacao> Atualizar(@PathVariable Long Solicitacao_id, @RequestBody Solicitacao Solicitacao){
+  public ResponseEntity<Solicitacao> Atualizar(@PathVariable Integer Solicitacao_id, @RequestBody Solicitacao Solicitacao){
 			
     if (!SolicitacaoRepository.existsById(Solicitacao_id)) {
       return ResponseEntity.notFound().build();
@@ -61,7 +63,7 @@ public class SolicitacaoController {
 			
 			
   @DeleteMapping("/Solicitacaos/{Solicitacao_id}")
-  public ResponseEntity<Void> Deletar(@PathVariable Long Solicitacao_id){
+  public ResponseEntity<Void> Deletar(@PathVariable Integer Solicitacao_id){
     if (!SolicitacaoRepository.existsById(Solicitacao_id)) {
 	  return ResponseEntity.notFound().build();
 	}

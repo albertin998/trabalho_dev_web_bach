@@ -36,7 +36,7 @@ public class TarefaController {
   }	
 				
   @GetMapping("/Tarefas/{Tarefa_id}")
-  public ResponseEntity<Tarefa> Buscar(@PathVariable Long Tarefa_id) {
+  public ResponseEntity<Tarefa> Buscar(@PathVariable Integer Tarefa_id) {
     Optional<Tarefa> Tarefa = TarefaRepository.findById(Tarefa_id);
 				
      if (Tarefa.isPresent()) {
@@ -47,7 +47,7 @@ public class TarefaController {
   }
 				
   @PutMapping("/Tarefas/{Tarefa_id}")
-  public ResponseEntity<Tarefa> Atualizar(@PathVariable Long Tarefa_id, @RequestBody Tarefa Tarefa){
+  public ResponseEntity<Tarefa> Atualizar(@PathVariable Integer Tarefa_id, @RequestBody Tarefa Tarefa){
 			
     if (!TarefaRepository.existsById(Tarefa_id)) {
 	  return ResponseEntity.notFound().build();
@@ -61,7 +61,7 @@ public class TarefaController {
 			
 			
   @DeleteMapping("/Tarefas/{Tarefa_id}")
-  public ResponseEntity<Void> Deletar(@PathVariable Long Tarefa_id){
+  public ResponseEntity<Void> Deletar(@PathVariable Integer Tarefa_id){
     if (!TarefaRepository.existsById(Tarefa_id)) {
       return ResponseEntity.notFound().build();
 	}

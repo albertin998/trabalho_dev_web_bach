@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.Tcc.domain.model.Tarefa;
 
 @Repository
-public interface TarefaRepository extends JpaRepository<Tarefa, Long> {	
+public interface TarefaRepository extends JpaRepository<Tarefa, Integer> {	
 }    
 

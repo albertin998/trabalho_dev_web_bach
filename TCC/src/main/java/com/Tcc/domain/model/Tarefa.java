@@ -8,40 +8,56 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "tarefa")
 public class Tarefa {
 
   @EqualsAndHashCode.Include	
   @Id	
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  private Long tarefa_id;
+  private Integer tarefa_id;
   
-  private Long funcionario_id;
+  private Integer usuario_id;
   private LocalDateTime data_cadastro;
   private LocalDateTime data_entrega;
   private LocalTime tempo_gasto;
   private Blob texto;
-  private Long etapa_id;
-  private Long solicitacao_id;
+  private Integer etapa_id;   
   
-public Long getTarefa_id() {
+  @ManyToOne
+  @JoinColumn(name="solicitacao_id")
+  private Solicitacao solicitacao;
+  
+
+public Solicitacao getSolicitacao() {
+	return solicitacao;
+}
+
+public void setSolicitacao(Solicitacao solicitacao) {
+	this.solicitacao = solicitacao;
+}
+
+public Integer getTarefa_id() {
   return tarefa_id;
 }
 
-public void setTarefa_id(Long tarefa_id) {
+public void setTarefa_id(Integer tarefa_id) {
   this.tarefa_id = tarefa_id;
 }
 
-public Long getFuncionario_id() {
-  return funcionario_id;
+public Integer getUsuario_id() {
+  return usuario_id;
 }
 
-public void setFuncionario_id(Long funcionario_id) {
-  this.funcionario_id = funcionario_id;
+public void setUsuario_id(Integer usuario_id) {
+  this.usuario_id = usuario_id;
 }
 
 public LocalDateTime getData_cadastro() {
@@ -76,20 +92,13 @@ public void setTexto(Blob texto) {
   this.texto = texto;
 }
 
-public Long getEtapa_id() {
+public Integer getEtapa_id() {
   return etapa_id;
 }
 
-public void setEtapa_id(Long etapa_id) {
+public void setEtapa_id(Integer etapa_id) {
   this.etapa_id = etapa_id;
 }
 
-public Long getSolicitacao_id() {
-  return solicitacao_id;
-}
-
-public void setSolicitacao_id(Long solicitacao_id) {
-  this.solicitacao_id = solicitacao_id;
-}
 
 }

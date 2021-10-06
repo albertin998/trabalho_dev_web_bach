@@ -1,7 +1,12 @@
 package com.Tcc.domain.repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
+
+import com.Tcc.domain.model.Tarefa;
+
 import com.Tcc.domain.model.Usuario;
 import java.util.List;
 
@@ -48,6 +53,22 @@ try {
         return q.getResultList();
         
 } catch (Exception e) {
+	return null;
+}    }    
+
+public List<Tarefa> TarefasUsuarioLogado(Integer usuario_id) {
+
+try {
+	
+  TypedQuery<Tarefa> q = em.createQuery("select  t  from Tarefa t  join t.solicitacao  where t.usuario_id = :usuario_id",Tarefa.class);  
+                                                            
+        q.setParameter("usuario_id", 1);
+                
+        
+        return q.getResultList();
+        
+} catch (Exception e) {
+	System.out.println(e.getMessage());
 	return null;
 }        
 

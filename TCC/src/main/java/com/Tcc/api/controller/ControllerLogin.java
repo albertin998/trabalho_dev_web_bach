@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.Tcc.domain.model.Tarefa;
 import com.Tcc.domain.model.Usuario;
 import com.Tcc.domain.repository.LoginRepository;
 import java.util.List;
@@ -23,9 +25,10 @@ public class ControllerLogin {
 		
   } 
   
+  @GetMapping("/TarefasUsuario")
+  public List<Tarefa> TarefasUsuarioLogado(
+		  @RequestHeader("usuario_id") Integer usuario_id){
+	  return LoginRepository.TarefasUsuarioLogado(usuario_id);
+  }
   
-  @GetMapping("/BuscarUsuarioLogado/{Usuario_id}")
-  public Usuario BuscarUsuarioLogado(@PathVariable Integer usuario_id) {
-	 return LoginRepository.BuscarUsuario(usuario_id); 
-  }  
 }
