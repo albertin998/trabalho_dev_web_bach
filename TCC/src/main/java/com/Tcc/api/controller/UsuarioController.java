@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,8 +47,9 @@ public class UsuarioController {
 	return ResponseEntity.notFound().build(); 	
   }
 				
-  @PutMapping("/Usuarios/{Usuario_id}")
-  public ResponseEntity<Usuario> Atualizar(@PathVariable Integer Usuario_id, @RequestBody Usuario Usuario){
+  @PutMapping("/Usuarios")
+  public ResponseEntity<Usuario> Atualizar(
+		  @RequestHeader("usuario_id") Integer Usuario_id, @RequestBody Usuario Usuario){
 			
     if (!UsuarioRepository.existsById(Usuario_id)) {
 	  return ResponseEntity.notFound().build();
@@ -58,6 +60,7 @@ public class UsuarioController {
 				
 	return ResponseEntity.ok(Usuario);
   }
+ 
 			
 			
   @DeleteMapping("/Usuarios/{Usuario_id}")

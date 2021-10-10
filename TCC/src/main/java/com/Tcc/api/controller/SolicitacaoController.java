@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,8 +38,9 @@ public class SolicitacaoController {
     return SolicitacaoRepository.findAll();		
   }	
 				
-  @GetMapping("/Solicitacaos/{Solicitacao_id}")
-  public ResponseEntity<Solicitacao> Buscar(@PathVariable Integer Solicitacao_id) {
+  @GetMapping("/BuscarTarefas")
+  public ResponseEntity<Solicitacao> Buscar(
+		  @RequestHeader("solicitacao_id") Integer Solicitacao_id) {
     Optional<Solicitacao> Solicitacao = SolicitacaoRepository.findById(Solicitacao_id);
 				
     if (Solicitacao.isPresent()) {
@@ -60,7 +62,7 @@ public class SolicitacaoController {
 				
     return ResponseEntity.ok(Solicitacao);
   }
-			
+  		
 			
   @DeleteMapping("/Solicitacaos/{Solicitacao_id}")
   public ResponseEntity<Void> Deletar(@PathVariable Integer Solicitacao_id){

@@ -1,6 +1,5 @@
 package com.Tcc.domain.model;
 
-import java.sql.Blob;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -28,13 +27,24 @@ public class Tarefa {
   private LocalDateTime data_cadastro;
   private LocalDateTime data_entrega;
   private LocalTime tempo_gasto;
-  private Blob texto;
-  private Integer etapa_id;   
-  
-  @ManyToOne
-  @JoinColumn(name="solicitacao_id")
+  private String texto; 
+
+@ManyToOne
+@JoinColumn(name="solicitacao_id")
   private Solicitacao solicitacao;
+
+@ManyToOne
+@JoinColumn(name="etapa_id")
+private Etapa etapa;
   
+
+public Etapa getEtapa() {
+	return etapa;
+}
+
+public void setEtapa(Etapa etapa) {
+	this.etapa = etapa;
+}
 
 public Solicitacao getSolicitacao() {
 	return solicitacao;
@@ -84,21 +94,14 @@ public void setTempo_gasto(LocalTime tempo_gasto) {
   this.tempo_gasto = tempo_gasto;
 }
 
-public Blob getTexto() {
+public String getTexto() {
   return texto;
 }
 
-public void setTexto(Blob texto) {
+public void setTexto(String texto) {
   this.texto = texto;
 }
 
-public Integer getEtapa_id() {
-  return etapa_id;
-}
-
-public void setEtapa_id(Integer etapa_id) {
-  this.etapa_id = etapa_id;
-}
 
 
 }

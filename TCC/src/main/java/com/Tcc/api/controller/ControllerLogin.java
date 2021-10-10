@@ -2,7 +2,6 @@ package com.Tcc.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +29,11 @@ public class ControllerLogin {
 		  @RequestHeader("usuario_id") Integer usuario_id){
 	  return LoginRepository.TarefasUsuarioLogado(usuario_id);
   }
+  
+  @GetMapping("/TarefasSolicitacao")
+  public List<Tarefa> TarefasSolicitacao(
+		  @RequestHeader("solicitacao_id") Integer solicitacao_id){
+	  return LoginRepository.TarefasSolicitacao(solicitacao_id);
+  }  
   
 }

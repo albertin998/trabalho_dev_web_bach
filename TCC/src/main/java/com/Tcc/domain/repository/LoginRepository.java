@@ -54,7 +54,8 @@ try {
         
 } catch (Exception e) {
 	return null;
-}    }    
+}    } 
+      
 
 public List<Tarefa> TarefasUsuarioLogado(Integer usuario_id) {
 
@@ -62,7 +63,7 @@ try {
 	
   TypedQuery<Tarefa> q = em.createQuery("select  t  from Tarefa t  join t.solicitacao  where t.usuario_id = :usuario_id",Tarefa.class);  
                                                             
-        q.setParameter("usuario_id", 1);
+        q.setParameter("usuario_id", usuario_id);
                 
         
         return q.getResultList();
@@ -74,6 +75,22 @@ try {
 
      
     }
+
+public List<Tarefa> TarefasSolicitacao(Integer solicitacao_id) {
+
+try {
+	
+  TypedQuery<Tarefa> q = em.createQuery("select  t  from Tarefa t  join t.solicitacao s join t.etapa where s.solicitacao_id = :solicitacao_id",Tarefa.class);  
+                                                            
+        q.setParameter("solicitacao_id", solicitacao_id);
+                
+        
+        return q.getResultList();
+        
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+	return null;
+}}
    
    public Usuario BuscarUsuario(Integer usuario_id) {
 
