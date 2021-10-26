@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Tcc.domain.model.Solicitacao;
 import com.Tcc.domain.model.Tarefa;
 import com.Tcc.domain.model.Tarefa1;
-import com.Tcc.domain.repository.SolicitacaoRepository;
 import com.Tcc.domain.repository.Tarefa1Repository;
 import com.Tcc.domain.repository.TarefaRepository;
 
@@ -29,8 +27,6 @@ public class TarefaController {
 	 
   @Autowired
   private TarefaRepository TarefaRepository;
-  @Autowired
-  private SolicitacaoRepository SolicitacaoRepository;
   @Autowired
   private Tarefa1Repository Tarefa1Repository;
 			
@@ -88,24 +84,20 @@ public class TarefaController {
   
   @PatchMapping("/AtualizarTempoTarefa")
   public ResponseEntity<Tarefa> AtualizarTempoTarefa(
-		  @RequestHeader("tarefa_id") Integer tarefa_id,
-		  @RequestHeader("solicitacao_id") Integer solicitacao_id,
+		  @RequestHeader("tarefa_id") Integer tarefa_id,		  
 		  @RequestBody Tarefa Tarefa){
     
   if (!TarefaRepository.existsById(tarefa_id)) {
     return ResponseEntity.notFound().build();
   }
+  
+  int tempo = Tarefa.getTempo_gasto().getSecond();
 		  
   Optional<Tarefa> tarefaAux = TarefaRepository.findById(tarefa_id);          
 		  
-  tarefaAux.get().setTempo_gasto(tarefaAux.get().getTempo_gasto().plusSeconds(Tarefa.getTempo_gasto().getSecond()));                 	  				  
+  tarefaAux.get().setTempo_gasto(tarefaAux.get().getTempo_gasto().plusSeconds(tempo));                 	  				  
   Tarefa = TarefaRepository.save(tarefaAux.get());
-  
-  Optional<Solicitacao> SolicitacaoAux = SolicitacaoRepository.findById(solicitacao_id);          
-  
-  SolicitacaoAux.get().setTempo_gasto(SolicitacaoAux.get().getTempo_gasto().plusSeconds(Tarefa.getTempo_gasto().getSecond()));                 	  				  
-  SolicitacaoRepository.save(SolicitacaoAux.get());  
-			  				
+   			  			
   return ResponseEntity.ok(tarefaAux.get());
   }
 
