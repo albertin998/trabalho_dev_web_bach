@@ -26,6 +26,7 @@ public class UsuarioController {
     @Autowired
     private SecurityUtils securityUtils;
 
+   //Cadastrar Usuario
     @PostMapping("/Usuarios")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario Adicionar(@RequestBody Usuario Usuario) {
@@ -38,6 +39,8 @@ public class UsuarioController {
         }
         return null;
     }
+    
+    
 
     @GetMapping("/Usuarios")
     public List<Usuario> Listar() {

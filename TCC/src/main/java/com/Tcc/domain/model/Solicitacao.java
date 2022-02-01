@@ -1,5 +1,6 @@
 package com.Tcc.domain.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -20,7 +21,7 @@ public class Solicitacao {
   private Integer solicitacao_id;                 
   private Integer usuario_id;
   private LocalDateTime data_cadastro;
-  private LocalDateTime data_entrega;
+  private LocalDate data_entrega;
   private LocalTime tempo_gasto;
   private String descricao;
 
@@ -53,11 +54,11 @@ public void setData_cadastro(LocalDateTime data_cadastro) {
   this.data_cadastro = data_cadastro;
 }
 
-public LocalDateTime getData_entrega() {
+public LocalDate getData_entrega() {
   return data_entrega;
 }
 
-public void setData_entrega(LocalDateTime data_entrega) {
+public void setData_entrega(LocalDate data_entrega) {
   this.data_entrega = data_entrega;
 }
 

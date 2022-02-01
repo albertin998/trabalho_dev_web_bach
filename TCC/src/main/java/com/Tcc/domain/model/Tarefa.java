@@ -1,6 +1,6 @@
 package com.Tcc.domain.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.Entity;
@@ -24,8 +24,8 @@ public class Tarefa {
   private Integer tarefa_id;
   
   private Integer usuario_id;
-  private LocalDateTime data_cadastro;
-  private LocalDateTime data_entrega;
+  private LocalDate data_cadastro;
+  private LocalDate data_entrega;
   private LocalTime tempo_gasto;
   private String texto; 
 
@@ -70,19 +70,19 @@ public void setUsuario_id(Integer usuario_id) {
   this.usuario_id = usuario_id;
 }
 
-public LocalDateTime getData_cadastro() {
+public LocalDate getData_cadastro() {
   return data_cadastro;
 }
 
-public void setData_cadastro(LocalDateTime data_cadastro) {
+public void setData_cadastro(LocalDate data_cadastro) {
   this.data_cadastro = data_cadastro;
 }
 
-public LocalDateTime getData_entrega() {
+public LocalDate getData_entrega() {
   return data_entrega;
 }
 
-public void setData_entrega(LocalDateTime data_entrega) {
+public void setData_entrega(LocalDate data_entrega) {
   this.data_entrega = data_entrega;
 }
 

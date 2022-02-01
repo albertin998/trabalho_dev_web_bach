@@ -18,6 +18,7 @@ public class ControllerLogin {
     @Autowired
     private SecurityUtils securityUtils;
 
+    //Validar Se existe o usuario 
     @GetMapping("/ValidarUsuario")
     public List<Usuario> Validar(
             @RequestHeader("Login") String login,
